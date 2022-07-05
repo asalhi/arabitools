@@ -148,3 +148,21 @@ def getVerbsConjugation(word):
   data = json.loads(json.loads(json.dumps(jarWrapper(*args)))[0])
   return data
 
+def getVerbTashkeel(verb, output="normal"):
+  args = ['./asknour/AskNourPossibleVerbTashkeel.bin', verb]
+  result = str(jarWrapper(*args)).replace("[","").replace("]","").replace("'","").split(", ")
+  if output == "pandas":
+    result = pd.DataFrame (result)
+    result.columns = ["result"]
+
+  return result
+
+
+def getVerbWazen(verb, output="normal"):
+  args = ['./asknour/AskNourPossibleWazen.bin', verb]
+  result = str(jarWrapper(*args)).replace("[","").replace("]","").replace("'","").split(", ")
+  if output == "pandas":
+    result = pd.DataFrame (result)
+    result.columns = ["result"]
+
+  return result
