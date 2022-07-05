@@ -142,3 +142,9 @@ def getSynonyms(word, output="normal"):
     result.columns = ["result"]
 
   return result
+
+def getVerbsConjugation(word):
+  args = ['./asknour/AskNourVerbsConjugation.bin', word]
+  data = json.loads(json.loads(json.dumps(jarWrapper(*args)))[0])
+  return data
+
