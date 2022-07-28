@@ -7,13 +7,13 @@ https://www.arabitools.com/
 
 هذا رابط للمثال لكيفية إستخدام الأدوات : 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1n4nj58vyyR_niIUQhJUvDx8EYsSeRPBs?usp=sharing)]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1n4nj58vyyR_niIUQhJUvDx8EYsSeRPBs?usp=sharing)
 
 # AskNour arabic verbs libarary examples - build upon ArabiTools Lib.
 ArabiTools: https://www.arabitools.com/
 
 Colab example of the current tools: 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1n4nj58vyyR_niIUQhJUvDx8EYsSeRPBs?usp=sharing)]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1n4nj58vyyR_niIUQhJUvDx8EYsSeRPBs?usp=sharing)
 
 
 
