@@ -82,7 +82,7 @@ def jarWrapper(*args):
     return ret
 
 def getRelatedPhrases(phrase, depth, output="normal"):
-  args = ['./asknour/AskNourGetRelatedPhrases.bin', phrase, str(depth)]
+  args = ['./arabitools/ArabiToolsPythonGetRelatedPhrases.bin', phrase, str(depth)]
   result = str(jarWrapper(*args)).replace("[","").replace("]","").replace("'","").split(", ")
   if output == "pandas":
     result = pd.DataFrame (result)
@@ -92,7 +92,7 @@ def getRelatedPhrases(phrase, depth, output="normal"):
 
 
 def getLemma(text, output="normal"):
-  args = ['./asknour/AskNourLemma.bin', text]
+  args = ['./arabitools/ArabiToolsPythonLemma.bin', text]
   result = str(jarWrapper(*args)).replace("[","").replace("]","").replace("'","").split(", ")
   if output == "pandas":
     series_1 = pd.Series(text.split(" "))
@@ -104,7 +104,7 @@ def getLemma(text, output="normal"):
 
 
 def getPOSTags(text, output="normal"):
-  asknour_taager = pickle.load(open("./asknour/AskNour_ud_tagger.bin", "rb"))
+  asknour_taager = pickle.load(open("./arabitools/ArabiToolsPython_ud_tagger.bin", "rb"))
   features = [extract_features(text.split(), idx) for idx in range(len(text.split()))]
   result = asknour_taager.predict_single(features)
   if output == "pandas":
@@ -120,7 +120,7 @@ def getPOSTags(text, output="normal"):
 def getPOSTagsWithLemma(text, output="normal"):
 
   text_lemma = " ".join(getLemma(text))
-  asknour_taager = pickle.load(open("./asknour/AskNour_ud_tagger.bin", "rb"))
+  asknour_taager = pickle.load(open("./arabitools/ArabiToolsPython_ud_tagger.bin", "rb"))
   features = [extract_features(text_lemma.split(), idx) for idx in range(len(text.split()))]
   result = asknour_taager.predict_single(features)
   if output == "pandas":
@@ -135,7 +135,7 @@ def getPOSTagsWithLemma(text, output="normal"):
 
 
 def getSynonyms(word, output="normal"):
-  args = ['./asknour/AskNourSynonyms.bin', word]
+  args = ['./arabitools/ArabiToolsPythonSynonyms.bin', word]
   result = str(jarWrapper(*args)).replace("[","").replace("]","").replace("'","").split(", ")
   if output == "pandas":
     result = pd.DataFrame (result)
@@ -144,12 +144,12 @@ def getSynonyms(word, output="normal"):
   return result
 
 def getVerbsConjugation(word):
-  args = ['./asknour/AskNourVerbsConjugation.bin', word]
+  args = ['./arabitools/ArabiToolsPythonVerbsConjugation.bin', word]
   data = json.loads(json.loads(json.dumps(jarWrapper(*args)))[0])
   return data
 
 def getVerbTashkeel(verb, output="normal"):
-  args = ['./asknour/AskNourPossibleVerbTashkeel.bin', verb]
+  args = ['./arabitools/ArabiToolsPythonPossibleVerbTashkeel.bin', verb]
   result = str(jarWrapper(*args)).replace("[","").replace("]","").replace("'","").split(", ")
   if output == "pandas":
     result = pd.DataFrame (result)
@@ -159,7 +159,7 @@ def getVerbTashkeel(verb, output="normal"):
 
 
 def getVerbWazen(verb, output="normal"):
-  args = ['./asknour/AskNourPossibleWazen.bin', verb]
+  args = ['./arabitools/ArabiToolsPythonPossibleWazen.bin', verb]
   result = str(jarWrapper(*args)).replace("[","").replace("]","").replace("'","").split(", ")
   if output == "pandas":
     result = pd.DataFrame (result)
