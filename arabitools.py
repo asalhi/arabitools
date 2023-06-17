@@ -6,6 +6,8 @@ import pandas as pd
 import json
 import re
 import pickle
+import requests
+
 
 
 def install(package):
@@ -166,3 +168,22 @@ def getVerbWazen(verb, output="normal"):
     result.columns = ["result"]
 
   return result
+
+
+def getSen(text):
+  response = requests.post("https://asalhi85-arabitoolssentimentanalysis.hf.space/run/predict", json={
+      "data": [text,]}).json()
+  output = response["data"]
+  result = output[0]["label"]
+  conf = output[0]["confidences"]
+  return result, conf
+
+def getDialects(text):
+  response = requests.post("https://asalhi85-arabitoolsdialecrecognition.hf.space/run/predict", json={
+      "data": [text,]}).json()
+  output = response["data"]
+  result = output[0]["label"]
+  conf = output[0]["confidences"]
+  return result, conf
+
+
